@@ -5,6 +5,14 @@ import { FeaturedPosts } from '../sections/index';
 import { PostCard, Categories, PostWidget,  } from '../components';
 import { getPosts } from '../services';
 
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+
+  return {
+    props: {posts}
+  }
+}
+
 const Home: NextPage = ({ posts }) => {
   return (
     <div className="container mx-auto px-10 mb-8">
@@ -28,14 +36,6 @@ const Home: NextPage = ({ posts }) => {
       </div>
     </div>
   )
-}
-
-export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
-
-  return {
-    props: {posts}
-  }
 }
 
 export default Home
