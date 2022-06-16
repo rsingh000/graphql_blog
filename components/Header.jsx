@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
 import { getCategories } from '../services';
 
